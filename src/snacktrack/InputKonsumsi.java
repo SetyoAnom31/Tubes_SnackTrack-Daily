@@ -7,8 +7,11 @@ package snacktrack;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -206,8 +209,22 @@ public class InputKonsumsi extends javax.swing.JFrame {
     }//GEN-LAST:event_txtWaktuActionPerformed
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-
+        String nama = txtNamaItem.getText();
+        String kalori = txtKalori.getText();
+        String kategori = comboKategori.getSelectedItem().toString();
+        String waktuKonsumsi = txtWaktu.getText();
         
+        try {
+            Connection con = databaseConnection.getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(InputKonsumsi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String sql = "INSERT INTO itemkonsumsi (nama, kalori, kategori, waktuKonsumsi) VALUES (?, ?, ?, ?)";
+        
+
+        // Tambahkan ke tabel UI
+        DefaultTableModel tableModel = (DefaultTableModel) tblTabel.getModel();
+        tableModel.addRow(new Object[]{nama, kalori, kategori, waktuKonsumsi});
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

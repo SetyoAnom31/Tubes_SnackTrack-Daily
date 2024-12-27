@@ -20,6 +20,14 @@ public class TugasBesar_SnackTrackDaily {
         SwingUtilities.invokeLater(() -> {
             InputKonsumsi loginFrame = new InputKonsumsi();
             loginFrame.setVisible(true);
+            try {
+            Connection con = databaseConnection.getConnection();
+            if (con != null) {
+                System.out.println("Koneksi berhasil!");
+            }
+        } catch (Exception e) {
+            System.out.println("Koneksi gagal: " + e.getMessage());
+        }
         });
     }
     
