@@ -131,17 +131,17 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+        
         String username = txtUsername.getText();
+        String email = txtEmail.getText();
         String password = txtPassword.getText();
 
         if (username.isEmpty() || password.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Username atau Password tidak boleh kosong!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-        } else {
-            InputKonsumsi inputFrame = new InputKonsumsi();
-            inputFrame.setVisible(true);
-            this.dispose();
-        }
+            javax.swing.JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        } 
+        
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

@@ -20,7 +20,7 @@ public class User {
         this.Email = Email;
         this.Password = Password;
     }
-
+}
 //    public int getId_user() { return id_user; }
 //    public void setId_user(int id_user) { this.id_user = id_user; }
 //    public String getNama_User() { return Nama_User; }
@@ -29,5 +29,5 @@ public class User {
 //    public void setEmail(String Email) { this.Email = Email; }
 //    public String getPassword() { return Password; }
 //    public void setPassword(String Password) { this.Password = Password; }
-}
+//}
 

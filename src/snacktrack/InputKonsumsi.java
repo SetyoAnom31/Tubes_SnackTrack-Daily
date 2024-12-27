@@ -53,7 +53,7 @@ public class InputKonsumsi extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTabel = new javax.swing.JTable();
         lblMessage = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnDaily = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -113,10 +113,10 @@ public class InputKonsumsi extends javax.swing.JFrame {
 
         lblMessage.setText("Keterangan");
 
-        jButton1.setText("DailyLog");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnDaily.setText("DailyLog");
+        btnDaily.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnDailyActionPerformed(evt);
             }
         });
 
@@ -131,7 +131,7 @@ public class InputKonsumsi extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(89, 89, 89)
-                        .addComponent(jButton1))
+                        .addComponent(btnDaily))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(btnTambah))
@@ -165,7 +165,7 @@ public class InputKonsumsi extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(btnDaily))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel2)
                 .addGap(11, 11, 11)
@@ -227,9 +227,9 @@ public class InputKonsumsi extends javax.swing.JFrame {
         tableModel.addRow(new Object[]{nama, kalori, kategori, waktuKonsumsi});
     }//GEN-LAST:event_btnTambahActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnDailyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDailyActionPerformed
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnDailyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,9 +291,9 @@ public class InputKonsumsi extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDaily;
     private javax.swing.JButton btnTambah;
     private javax.swing.JComboBox<String> comboKategori;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

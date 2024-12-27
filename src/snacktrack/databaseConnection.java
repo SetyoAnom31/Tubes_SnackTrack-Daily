@@ -4,10 +4,6 @@
  */
 package snacktrack;
 
-/**
- *
- * @author Anom
- */
 import java.sql.*;
 
 public class databaseConnection {
@@ -15,7 +11,22 @@ public class databaseConnection {
     private static final String USER = "root";
     private static final String PASSWORD = "";
     
-    public static Connection getConnection() throws SQLException{
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+    public static Connection getConnection() throws SQLException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            return DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("MySQL JDBC Driver not found.", e);
+        }
+    }
+    
+    public static void closeConnection(Connection connection) {
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
+        }
     }
 }
