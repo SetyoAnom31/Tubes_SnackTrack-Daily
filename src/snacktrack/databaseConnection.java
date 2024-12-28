@@ -7,26 +7,32 @@ package snacktrack;
 import java.sql.*;
 
 public class databaseConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/snacktrack";
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
-    
-    public static Connection getConnection() throws SQLException {
+
+    private static Connection connection;
+
+    public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("MySQL JDBC Driver not found.", e);
-        }
-    }
-    
-    public static void closeConnection(Connection connection) {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                System.err.println("Error closing connection: " + e.getMessage());
+            if (connection == null || connection.isClosed()) {
+                String url = "jdbc:mysql://localhost:3306/snacktrack";
+                String user = "root";
+                String password = "";
+                connection = DriverManager.getConnection(url, user, password);
+                System.out.println("Database Connected");
             }
+        } catch (SQLException e) {
+            System.out.println("Connection Failed : " + e.getMessage());
+        }
+        return connection;
+    }
+
+    public static void closeConnection() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+                connection = null;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error closing connection: " + e.getMessage());
         }
     }
 }

@@ -4,6 +4,7 @@
  */
 package snacktrack;
 
+import java.sql.*;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -215,16 +216,33 @@ public class InputKonsumsi extends javax.swing.JFrame {
         String waktuKonsumsi = txtWaktu.getText();
         
         try {
-            Connection con = databaseConnection.getConnection();
-        } catch (SQLException ex) {
-            Logger.getLogger(InputKonsumsi.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Connection con = databaseConnection.getConnection();
         String sql = "INSERT INTO itemkonsumsi (nama, kalori, kategori, waktuKonsumsi) VALUES (?, ?, ?, ?)";
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        pstmt.setString(1, nama);
+        pstmt.setDouble(2, Double.parseDouble(kalori));
+        pstmt.setString(3, kategori);
+        pstmt.setString(4, waktuKonsumsi);
+        pstmt.executeUpdate();
+        JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan!");
+//        String sql = "INSERT INTO itemkonsumsi (nama, kalori, kategori, waktuKonsumsi) VALUES (?, ?, ?, ?)";
         
-
-        // Tambahkan ke tabel UI
         DefaultTableModel tableModel = (DefaultTableModel) tblTabel.getModel();
         tableModel.addRow(new Object[]{nama, kalori, kategori, waktuKonsumsi});
+
+        // Kosongkan input field
+        txtNamaItem.setText("");
+        txtKalori.setText("");
+        comboKategori.setSelectedIndex(0);
+        txtWaktu.setText("");
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Gagal menambahkan data: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+//        // Tambahkan ke tabel UI
+//        DefaultTableModel tableModel = (DefaultTableModel) tblTabel.getModel();
+//        tableModel.addRow(new Object[]{nama, kalori, kategori, waktuKonsumsi});
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnDailyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDailyActionPerformed
@@ -267,25 +285,25 @@ public class InputKonsumsi extends javax.swing.JFrame {
         });
     }
     
-    public void loadData() { 
+    public void loadData() {
     DefaultTableModel tableModel = (DefaultTableModel) tblTabel.getModel();
     tableModel.setRowCount(0);
-    
-    try {
-        Connection con = databaseConnection.getConnection();
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM itemkonsumsi");
+
+    String sql = "SELECT * FROM itemkonsumsi";
+    try (Connection con = databaseConnection.getConnection();
+         Statement stmt = con.createStatement();
+         ResultSet rs = stmt.executeQuery(sql)) {
+
         while (rs.next()) {
-            int id = rs.getInt("id_itemKonsumsi");
             String nama = rs.getString("nama");
             double kalori = rs.getDouble("kalori");
+            String kategori = rs.getString("kategori");
             String waktuKonsumsi = rs.getString("waktuKonsumsi");
 
-            tableModel.addRow(new Object[]{id, nama, kalori, waktuKonsumsi});
+            tableModel.addRow(new Object[]{nama, kalori, kategori, waktuKonsumsi});
         }
-
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
 
