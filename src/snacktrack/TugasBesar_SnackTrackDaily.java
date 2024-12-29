@@ -9,6 +9,7 @@ package snacktrack;
  * @author Anom
  */
 
+import database.databaseConnection;
 import java.sql.*;
 import javax.swing.*;
 import java.awt.*;

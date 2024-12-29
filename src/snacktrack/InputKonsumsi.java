@@ -4,6 +4,8 @@
  */
 package snacktrack;
 
+import database.ItemKonsumsiDB;
+import database.databaseConnection;
 import java.sql.*;
 import java.awt.Color;
 import java.sql.Connection;
@@ -26,9 +28,17 @@ public class InputKonsumsi extends javax.swing.JFrame {
      * Creates new form LoginFrame
      */
     private DefaultTableModel tableModel;
-    
-    public InputKonsumsi() {
+    private ItemKonsumsiDB itemDB = new ItemKonsumsiDB();
+    private String email;
+
+    public InputKonsumsi(String email) {
         initComponents();
+        this.email = email;
+        tableModel = (DefaultTableModel) tblTabel.getModel();
+        loadTable(tableModel, email);
+    }
+
+    public InputKonsumsi() {
     }
 
     /**
@@ -55,6 +65,9 @@ public class InputKonsumsi extends javax.swing.JFrame {
         tblTabel = new javax.swing.JTable();
         lblMessage = new javax.swing.JLabel();
         btnDaily = new javax.swing.JButton();
+        btnLogOUt = new javax.swing.JButton();
+        lblId = new javax.swing.JLabel();
+        btnHapus = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -107,9 +120,22 @@ public class InputKonsumsi extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nama Item", "Kalori", "Kategori", "Waktu"
+                "Id Item", "Nama Item", "Kalori", "Kategori", "Waktu"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblTabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTabelMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblTabel);
 
         lblMessage.setText("Keterangan");
@@ -121,6 +147,24 @@ public class InputKonsumsi extends javax.swing.JFrame {
             }
         });
 
+        btnLogOUt.setText("LogOut");
+        btnLogOUt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOUtActionPerformed(evt);
+            }
+        });
+
+        lblId.setText("ID");
+
+        btnHapus.setBackground(new java.awt.Color(0, 102, 153));
+        btnHapus.setForeground(new java.awt.Color(0, 0, 0));
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,14 +172,13 @@ public class InputKonsumsi extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMessage)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(89, 89, 89)
+                        .addGap(86, 86, 86)
                         .addComponent(btnDaily))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(btnTambah))
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,17 +193,25 @@ public class InputKonsumsi extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(6, 6, 6)
                                     .addComponent(comboKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(txtWaktu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel2)))
+                        .addComponent(txtWaktu, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(btnTambah)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnHapus)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(lblMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(43, 43, 43)))
+                    .addComponent(btnLogOUt))
                 .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(15, 15, 15)
@@ -188,10 +239,15 @@ public class InputKonsumsi extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnTambah)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTambah)
+                    .addComponent(btnHapus)
+                    .addComponent(lblId))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMessage)
-                .addGap(16, 16, 16))
+                .addGap(18, 18, 18)
+                .addComponent(btnLogOUt)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,43 +267,91 @@ public class InputKonsumsi extends javax.swing.JFrame {
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         String nama = txtNamaItem.getText();
-        String kalori = txtKalori.getText();
+        double kalori = Double.parseDouble(txtKalori.getText());
         String kategori = comboKategori.getSelectedItem().toString();
         String waktuKonsumsi = txtWaktu.getText();
-        
+
         try {
-        Connection con = databaseConnection.getConnection();
-        String sql = "INSERT INTO itemkonsumsi (nama, kalori, kategori, waktuKonsumsi) VALUES (?, ?, ?, ?)";
-        PreparedStatement pstmt = con.prepareStatement(sql);
-        pstmt.setString(1, nama);
-        pstmt.setDouble(2, Double.parseDouble(kalori));
-        pstmt.setString(3, kategori);
-        pstmt.setString(4, waktuKonsumsi);
-        pstmt.executeUpdate();
-        JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan!");
-//        String sql = "INSERT INTO itemkonsumsi (nama, kalori, kategori, waktuKonsumsi) VALUES (?, ?, ?, ?)";
-        
-        DefaultTableModel tableModel = (DefaultTableModel) tblTabel.getModel();
-        tableModel.addRow(new Object[]{nama, kalori, kategori, waktuKonsumsi});
-
-        // Kosongkan input field
-        txtNamaItem.setText("");
-        txtKalori.setText("");
-        comboKategori.setSelectedIndex(0);
-        txtWaktu.setText("");
-
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(this, "Gagal menambahkan data: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    }
-
-//        // Tambahkan ke tabel UI
-//        DefaultTableModel tableModel = (DefaultTableModel) tblTabel.getModel();
-//        tableModel.addRow(new Object[]{nama, kalori, kategori, waktuKonsumsi});
+            ItemKonsumsi item = new ItemKonsumsi(nama, kalori, kategori, waktuKonsumsi, email);
+            if (itemDB.tambahItem(item)) {
+                JOptionPane.showMessageDialog(null, "Item berhasil ditambahkan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+                loadTable(tableModel, email);
+                reset();
+            } else {
+                JOptionPane.showMessageDialog(null, "Item gagal ditambahkan", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (ValidasiException e) {
+            lblMessage.setText("Gagal menambahkan item: " + e.getMessage());
+        }
     }//GEN-LAST:event_btnTambahActionPerformed
 
+    private void reset() {
+        txtNamaItem.setText("");
+        txtKalori.setText("");
+        comboKategori.setSelectedIndex(-1);
+        txtWaktu.setText("");
+    }
     private void btnDailyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDailyActionPerformed
-        
+        new UserDailyLog(email).setVisible(true);
     }//GEN-LAST:event_btnDailyActionPerformed
+
+    private void btnLogOUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOUtActionPerformed
+        new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogOUtActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        int id = Integer.parseInt(lblId.getText());
+        itemDB.hapusItem(id);
+        loadTable(tableModel, email);
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void tblTabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTabelMouseClicked
+        int selectedRow = tblTabel.getSelectedRow();
+        if (selectedRow != -1) {
+            try {
+                // Get the ID from the table (assuming it's in the first column)
+                Object idValue = tblTabel.getValueAt(selectedRow, 0);
+                if (idValue instanceof Integer) {
+                    int id = (Integer) idValue;
+                    lblId.setText(String.valueOf(id));
+                } else if (idValue instanceof String) {
+                    lblId.setText((String) idValue);
+                } else {
+                    // Handle cases where the ID is of an unexpected type
+                    lblId.setText("");
+                    JOptionPane.showMessageDialog(null, "ID tidak valid.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                // Handle potential exceptions (e.g., ClassCastException)
+                lblId.setText("");
+                JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat mengambil ID.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_tblTabelMouseClicked
+    public void loadTable(DefaultTableModel tableModel, String email) {
+        String query = "SELECT * FROM item_konsumsi WHERE username = ?";
+
+        try (Connection connection = databaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+
+            tableModel.setRowCount(0); // Clear existing rows
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_item_konsumsi");
+                String nama = resultSet.getString("nama");
+                String kategori = resultSet.getString("kategori");
+                double kalori = resultSet.getDouble("kalori");
+                String waktuKonsumsi = resultSet.getString("waktu_konsumsi");
+
+                tableModel.addRow(new Object[]{id, nama, kategori, kalori, waktuKonsumsi});
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -284,32 +388,32 @@ public class InputKonsumsi extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public void loadData() {
-    DefaultTableModel tableModel = (DefaultTableModel) tblTabel.getModel();
-    tableModel.setRowCount(0);
+        DefaultTableModel tableModel = (DefaultTableModel) tblTabel.getModel();
+        tableModel.setRowCount(0);
 
-    String sql = "SELECT * FROM itemkonsumsi";
-    try (Connection con = databaseConnection.getConnection();
-         Statement stmt = con.createStatement();
-         ResultSet rs = stmt.executeQuery(sql)) {
+        String sql = "SELECT * FROM itemkonsumsi";
+        try (Connection con = databaseConnection.getConnection(); Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
 
-        while (rs.next()) {
-            String nama = rs.getString("nama");
-            double kalori = rs.getDouble("kalori");
-            String kategori = rs.getString("kategori");
-            String waktuKonsumsi = rs.getString("waktuKonsumsi");
+            while (rs.next()) {
+                String nama = rs.getString("nama");
+                double kalori = rs.getDouble("kalori");
+                String kategori = rs.getString("kategori");
+                String waktuKonsumsi = rs.getString("waktuKonsumsi");
 
-            tableModel.addRow(new Object[]{nama, kalori, kategori, waktuKonsumsi});
+                tableModel.addRow(new Object[]{nama, kalori, kategori, waktuKonsumsi});
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDaily;
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnLogOUt;
     private javax.swing.JButton btnTambah;
     private javax.swing.JComboBox<String> comboKategori;
     private javax.swing.JLabel jLabel1;
@@ -319,6 +423,7 @@ public class InputKonsumsi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JTable tblTabel;
     private javax.swing.JTextField txtKalori;

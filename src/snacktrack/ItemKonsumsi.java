@@ -9,14 +9,16 @@ package snacktrack;
  * @author Anom
  */
 public class ItemKonsumsi {
+
     private int id_ItemKonsumsi;
     private String nama;
     private String kategori;
     private double kalori;
     private String waktuKonsumsi;
-    
-    public ItemKonsumsi(int id_ItemKonsumsi, String nama, double kalori, String waktuKonsumsi) throws ValidasiException {
-        
+    private String username;
+
+    public ItemKonsumsi(String nama, double kalori, String kategori, String waktuKonsumsi, String username) throws ValidasiException {
+
         if (nama.isEmpty()) {
             throw new ValidasiException("Nama Item masih kosong");
         }
@@ -29,52 +31,55 @@ public class ItemKonsumsi {
         if (!waktuKonsumsi.matches("\\d{2}/\\d{2}/\\d{4}")) { // Format dd/mm/yyyy
             throw new ValidasiException("Waktu konsumsi harus dalam format dd/mm/yyyy");
         }
-        this.id_ItemKonsumsi = id_ItemKonsumsi;
         this.nama = nama;
         this.kalori = kalori;
         this.kategori = kategori;
         this.waktuKonsumsi = waktuKonsumsi;
+        this.username = username;
     }
-    
+
     public double hitungTotalKalori() {
         return kalori;
     }
-    
-    public void tambahItem() {
-        // Implementasi untuk menambah item konsumsi
-    }
-    
-    public void hapusItem() {
-        // Implementasi untuk menghapus item konsumsi
-    }
-    
+
     // Getter dan Setter
-    public int getId_ItemKonsumsi() { 
-        return id_ItemKonsumsi; 
+    public int getId_ItemKonsumsi() {
+        return id_ItemKonsumsi;
     }
-    public void setId_ItemKonsumsi(int id_ItemKonsumsi) { 
-        this.id_ItemKonsumsi = id_ItemKonsumsi; 
+
+    public void setId_ItemKonsumsi(int id_ItemKonsumsi) {
+        this.id_ItemKonsumsi = id_ItemKonsumsi;
     }
-    public String getNama() { 
-        return nama; 
+
+    public String getNama() {
+        return nama;
     }
-    public String getKategori() { 
-        return kategori; 
+
+    public String getUsername() {
+        return username;
     }
-    public void setNama(String nama) { 
-        this.nama = nama; 
+
+    public String getKategori() {
+        return kategori;
     }
-    public double getKalori() { 
-        return kalori; 
+
+    public void setNama(String nama) {
+        this.nama = nama;
     }
-    public void setKalori(double kalori) { 
-        this.kalori = kalori; 
+
+    public double getKalori() {
+        return kalori;
     }
-    public String getWaktuKonsumsi() { 
-        return waktuKonsumsi; 
+
+    public void setKalori(double kalori) {
+        this.kalori = kalori;
     }
+
+    public String getWaktuKonsumsi() {
+        return waktuKonsumsi;
+    }
+
     public void setWaktuKonsumsi(String waktuKonsumsi) {
-        this.waktuKonsumsi = waktuKonsumsi; 
+        this.waktuKonsumsi = waktuKonsumsi;
     }
 }
-
