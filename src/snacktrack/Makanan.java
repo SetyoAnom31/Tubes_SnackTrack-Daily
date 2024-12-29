@@ -24,15 +24,7 @@ public class Makanan {
     public void createMakanan() {
         
     }
-    
-    public String getDetailMakanan() {
-        return "ID: " + id_makanan + 
-               "\nNama: " + Nama_Makanan + 
-               "\nKalori: " + Kalori_makanan + 
-               "\nKategori: " + Kategori;
-    }
-    
-    // Getter dan Setter
+
     public int getId_makanan() { 
         return id_makanan; 
     }

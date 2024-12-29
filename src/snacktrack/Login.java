@@ -46,7 +46,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -59,7 +59,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Password");
 
-        btnLogin.setBackground(new java.awt.Color(0, 102, 153));
+        btnLogin.setBackground(new java.awt.Color(0, 102, 51));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,10 +67,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        txtUsername.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtPassword.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Email");
 
-        btnRegister.setBackground(new java.awt.Color(0, 102, 153));
+        txtEmail.setBackground(new java.awt.Color(204, 204, 204));
+
+        btnRegister.setBackground(new java.awt.Color(0, 102, 51));
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

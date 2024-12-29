@@ -25,14 +25,6 @@ public class Minuman {
         // Implementasi untuk membuat minuman baru
     }
     
-    public String getDetailMinuman() {
-        return "ID: " + id_minuman + 
-               "\nNama: " + Nama_Minuman + 
-               "\nKalori: " + Kalori_minuman + 
-               "\nKategori: " + Kategori;
-    }
-    
-    // Getter dan Setter
     public int getId_minuman() { return id_minuman; }
     public void setId_minuman(int id_minuman) { this.id_minuman = id_minuman; }
     public String getNama_Minuman() { return Nama_Minuman; }

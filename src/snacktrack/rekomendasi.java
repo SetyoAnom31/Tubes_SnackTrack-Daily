@@ -38,12 +38,14 @@ public class rekomendasi extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+
         tblRekomendasi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nama", "Sajian", "Kalori per Sajian"
+                "Nama", "Takaran Saji", "Kalori per Sajian"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -56,8 +58,11 @@ public class rekomendasi extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblRekomendasi);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Daftar Rekomendasi Makanan Sehat");
 
+        btnSarapan.setBackground(new java.awt.Color(0, 102, 51));
         btnSarapan.setText("Sarapan");
         btnSarapan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +70,7 @@ public class rekomendasi extends javax.swing.JFrame {
             }
         });
 
+        btnSiang.setBackground(new java.awt.Color(0, 102, 51));
         btnSiang.setText("Makan Siang");
         btnSiang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +78,7 @@ public class rekomendasi extends javax.swing.JFrame {
             }
         });
 
+        btnMalam.setBackground(new java.awt.Color(0, 102, 51));
         btnMalam.setText("Makan Malam");
         btnMalam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +86,7 @@ public class rekomendasi extends javax.swing.JFrame {
             }
         });
 
+        btnCemilan.setBackground(new java.awt.Color(0, 102, 51));
         btnCemilan.setText("Cemilan");
         btnCemilan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +116,7 @@ public class rekomendasi extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

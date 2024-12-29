@@ -67,8 +67,17 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        txtUsername.setBackground(new java.awt.Color(204, 204, 204));
+        txtUsername.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtPassword.setBackground(new java.awt.Color(204, 204, 204));
+        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Email");
+
+        txtEmail.setBackground(new java.awt.Color(204, 204, 204));
+        txtEmail.setForeground(new java.awt.Color(0, 0, 0));
 
         btnLogin.setBackground(new java.awt.Color(0, 102, 51));
         btnLogin.setText("Login");

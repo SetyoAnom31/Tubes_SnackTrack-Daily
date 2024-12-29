@@ -50,64 +50,171 @@ public class InputKonsumsi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        lblMessage = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btnDaily = new javax.swing.JButton();
         txtNamaItem = new javax.swing.JTextField();
+        btnLogOUt = new javax.swing.JButton();
         txtKalori = new javax.swing.JTextField();
+        lblId = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnHapus = new javax.swing.JButton();
         comboKategori = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         txtWaktu = new javax.swing.JTextField();
         btnTambah = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTabel = new javax.swing.JTable();
-        lblMessage = new javax.swing.JLabel();
-        btnDaily = new javax.swing.JButton();
-        btnLogOUt = new javax.swing.JButton();
-        lblId = new javax.swing.JLabel();
-        btnHapus = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 766, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 386, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 766, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 386, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 406, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 185, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 766, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(27, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(333, Short.MAX_VALUE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 386, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(58, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(143, Short.MAX_VALUE)))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
+        setForeground(new java.awt.Color(204, 255, 204));
+
+        jPanel5.setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel1.setFont(new java.awt.Font("Britannic Bold", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("SnackTrack Daily");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Tambah Catatan Konsumsi");
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nama Item");
 
+        lblMessage.setForeground(new java.awt.Color(0, 0, 0));
+        lblMessage.setText("Keterangan");
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Kalori");
 
+        btnDaily.setBackground(new java.awt.Color(0, 153, 153));
+        btnDaily.setForeground(new java.awt.Color(0, 0, 0));
+        btnDaily.setText("DailyLog");
+        btnDaily.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDailyActionPerformed(evt);
+            }
+        });
+
+        txtNamaItem.setBackground(new java.awt.Color(204, 204, 204));
         txtNamaItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNamaItemActionPerformed(evt);
             }
         });
 
+        btnLogOUt.setBackground(new java.awt.Color(255, 102, 102));
+        btnLogOUt.setForeground(new java.awt.Color(0, 0, 0));
+        btnLogOUt.setText("LogOut");
+        btnLogOUt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOUtActionPerformed(evt);
+            }
+        });
+
+        txtKalori.setBackground(new java.awt.Color(204, 204, 204));
         txtKalori.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtKaloriActionPerformed(evt);
             }
         });
 
+        lblId.setForeground(new java.awt.Color(0, 0, 0));
+        lblId.setText("ID");
+
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Kategori");
 
+        btnHapus.setBackground(new java.awt.Color(0, 102, 51));
+        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
+
+        comboKategori.setBackground(new java.awt.Color(204, 204, 204));
         comboKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Makanan", "Minuman" }));
 
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Waktu Konsumsi");
 
+        txtWaktu.setBackground(new java.awt.Color(204, 204, 204));
         txtWaktu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtWaktuActionPerformed(evt);
             }
         });
 
-        btnTambah.setBackground(new java.awt.Color(0, 102, 153));
-        btnTambah.setForeground(new java.awt.Color(0, 0, 0));
+        btnTambah.setBackground(new java.awt.Color(0, 102, 51));
+        btnTambah.setForeground(new java.awt.Color(255, 255, 255));
         btnTambah.setText("Tambah Catatan");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +222,7 @@ public class InputKonsumsi extends javax.swing.JFrame {
             }
         });
 
+        tblTabel.setBackground(new java.awt.Color(153, 255, 153));
         tblTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -138,173 +246,102 @@ public class InputKonsumsi extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblTabel);
 
-        lblMessage.setText("Keterangan");
-
-        btnDaily.setText("DailyLog");
-        btnDaily.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDailyActionPerformed(evt);
-            }
-        });
-
-        btnLogOUt.setText("LogOut");
-        btnLogOUt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogOUtActionPerformed(evt);
-            }
-        });
-
-        lblId.setText("ID");
-
-        btnHapus.setBackground(new java.awt.Color(0, 102, 153));
-        btnHapus.setForeground(new java.awt.Color(0, 0, 0));
-        btnHapus.setText("Hapus");
-        btnHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(86, 86, 86)
+                        .addComponent(btnDaily))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtNamaItem, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(txtKalori, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel5)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(comboKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtWaktu, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(btnTambah)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnHapus)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lblId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(43, 43, 43))
+                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLogOUt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(btnDaily))
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel2)
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNamaItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtKalori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnTambah)
+                            .addComponent(btnHapus)
+                            .addComponent(lblId))
+                        .addGap(24, 24, 24)
+                        .addComponent(lblMessage)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnLogOUt)))
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(86, 86, 86)
-                        .addComponent(btnDaily))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtNamaItem, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(txtKalori, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel5)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(comboKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(txtWaktu, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(btnTambah)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnHapus)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(lblId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(lblMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(43, 43, 43)))
-                    .addComponent(btnLogOUt))
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(btnDaily))
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNamaItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtKalori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTambah)
-                    .addComponent(btnHapus)
-                    .addComponent(lblId))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblMessage)
-                .addGap(18, 18, 18)
-                .addComponent(btnLogOUt)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNamaItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamaItemActionPerformed
-
-    private void txtKaloriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKaloriActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtKaloriActionPerformed
-
-    private void txtWaktuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWaktuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtWaktuActionPerformed
-
-    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        String nama = txtNamaItem.getText();
-        double kalori = Double.parseDouble(txtKalori.getText());
-        String kategori = comboKategori.getSelectedItem().toString();
-        String waktuKonsumsi = txtWaktu.getText();
-
-        try {
-            ItemKonsumsi item = new ItemKonsumsi(nama, kalori, kategori, waktuKonsumsi, email);
-            if (itemDB.tambahItem(item)) {
-                JOptionPane.showMessageDialog(null, "Item berhasil ditambahkan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-                loadTable(tableModel, email);
-                reset();
-            } else {
-                JOptionPane.showMessageDialog(null, "Item gagal ditambahkan", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (ValidasiException e) {
-            lblMessage.setText("Gagal menambahkan item: " + e.getMessage());
-        }
-    }//GEN-LAST:event_btnTambahActionPerformed
-
-    private void reset() {
-        txtNamaItem.setText("");
-        txtKalori.setText("");
-        comboKategori.setSelectedIndex(-1);
-        txtWaktu.setText("");
-    }
-    private void btnDailyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDailyActionPerformed
-        new UserDailyLog(email).setVisible(true);
-    }//GEN-LAST:event_btnDailyActionPerformed
-
-    private void btnLogOUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOUtActionPerformed
-        new Login().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnLogOUtActionPerformed
-
-    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        int id = Integer.parseInt(lblId.getText());
-        itemDB.hapusItem(id);
-        loadTable(tableModel, email);
-    }//GEN-LAST:event_btnHapusActionPerformed
 
     private void tblTabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTabelMouseClicked
         int selectedRow = tblTabel.getSelectedRow();
@@ -329,7 +366,60 @@ public class InputKonsumsi extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_tblTabelMouseClicked
-    public void loadTable(DefaultTableModel tableModel, String email) {
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        String nama = txtNamaItem.getText();
+        double kalori = Double.parseDouble(txtKalori.getText());
+        String kategori = comboKategori.getSelectedItem().toString();
+        String waktuKonsumsi = txtWaktu.getText();
+
+        try {
+            ItemKonsumsi item = new ItemKonsumsi(nama, kalori, kategori, waktuKonsumsi, email);
+            if (itemDB.tambahItem(item)) {
+                JOptionPane.showMessageDialog(null, "Item berhasil ditambahkan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+                loadTable(tableModel, email);
+                reset();
+            } else {
+                JOptionPane.showMessageDialog(null, "Item gagal ditambahkan", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (ValidasiException e) {
+            lblMessage.setText("Gagal menambahkan item: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void txtWaktuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWaktuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWaktuActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        int id = Integer.parseInt(lblId.getText());
+        itemDB.hapusItem(id);
+        loadTable(tableModel, email);
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void txtKaloriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKaloriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtKaloriActionPerformed
+
+    private void btnLogOUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOUtActionPerformed
+        new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogOUtActionPerformed
+
+    private void txtNamaItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNamaItemActionPerformed
+
+    private void btnDailyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDailyActionPerformed
+        new UserDailyLog(email).setVisible(true);
+    }//GEN-LAST:event_btnDailyActionPerformed
+
+    private void reset() {
+        txtNamaItem.setText("");
+        txtKalori.setText("");
+        comboKategori.setSelectedIndex(-1);
+        txtWaktu.setText("");
+    }    public void loadTable(DefaultTableModel tableModel, String email) {
         String query = "SELECT * FROM item_konsumsi WHERE username = ?";
 
         try (Connection connection = databaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(query)) {
@@ -422,6 +512,11 @@ public class InputKonsumsi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblMessage;
