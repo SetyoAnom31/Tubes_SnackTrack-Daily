@@ -22,13 +22,13 @@ public class ItemKonsumsi {
         if (nama.isEmpty()) {
             throw new ValidasiException("Nama Item masih kosong");
         }
-        if (kalori <= 0) { // Memastikan kalori adalah angka positif (boleh desimal)
+        if (kalori <= 0) {
             throw new ValidasiException("Kalori harus berupa angka positif");
         }
         if (kategori.equals("-")) {
             throw new ValidasiException("Kategori masih kosong");
         }
-        if (!waktuKonsumsi.matches("\\d{2}/\\d{2}/\\d{4}")) { // Format dd/mm/yyyy
+        if (!waktuKonsumsi.matches("\\d{2}/\\d{2}/\\d{4}")) {
             throw new ValidasiException("Waktu konsumsi harus dalam format dd/mm/yyyy");
         }
         this.nama = nama;

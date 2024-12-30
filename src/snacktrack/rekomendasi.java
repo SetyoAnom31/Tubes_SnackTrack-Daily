@@ -14,9 +14,6 @@ public class rekomendasi extends javax.swing.JFrame {
 
     private DefaultTableModel tableModel;
 
-    /**
-     * Creates new form rekomendasi
-     */
     public rekomendasi() {
         initComponents();
         tableModel = (DefaultTableModel) tblRekomendasi.getModel();
@@ -208,17 +205,11 @@ public class rekomendasi extends javax.swing.JFrame {
         };
         updateTableData(cemilanData);
     }//GEN-LAST:event_btnCemilanActionPerformed
-    
-//    public void loadData(DefaultTableModel tableModel) {
-//        tableModel.setRowCount(0); // Clear existing data
-//        for (Object[] row : data) {
-//            tableModel.addRow(row); // Add new data
-//        }
-//    }
+
     private void updateTableData(Object[][] data) {
-        tableModel.setRowCount(0); // Kosongkan tabel
+        tableModel.setRowCount(0);
         for (Object[] row : data) {
-            tableModel.addRow(row); // Tambahkan data baru
+            tableModel.addRow(row);
         }
     }
 

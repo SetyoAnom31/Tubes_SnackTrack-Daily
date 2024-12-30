@@ -347,7 +347,6 @@ public class InputKonsumsi extends javax.swing.JFrame {
         int selectedRow = tblTabel.getSelectedRow();
         if (selectedRow != -1) {
             try {
-                // Get the ID from the table (assuming it's in the first column)
                 Object idValue = tblTabel.getValueAt(selectedRow, 0);
                 if (idValue instanceof Integer) {
                     int id = (Integer) idValue;
@@ -355,12 +354,10 @@ public class InputKonsumsi extends javax.swing.JFrame {
                 } else if (idValue instanceof String) {
                     lblId.setText((String) idValue);
                 } else {
-                    // Handle cases where the ID is of an unexpected type
                     lblId.setText("");
                     JOptionPane.showMessageDialog(null, "ID tidak valid.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (Exception e) {
-                // Handle potential exceptions (e.g., ClassCastException)
                 lblId.setText("");
                 JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat mengambil ID.", "Error", JOptionPane.ERROR_MESSAGE);
             }
