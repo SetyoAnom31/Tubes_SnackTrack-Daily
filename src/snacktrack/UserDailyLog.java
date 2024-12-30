@@ -301,16 +301,15 @@ public class UserDailyLog extends javax.swing.JFrame {
         String aktivitas = (String) jComboBox1.getSelectedItem();
         String kaloriHarian;
 
-        // Menentukan rentang kalori berdasarkan tingkat aktivitas
         switch (aktivitas) {
             case "Ringan":
-                kaloriHarian = "Aktivitas ringan: 2.000–2.400 kalori/hari";
+                kaloriHarian = "2.000–2.400";
                 break;
             case "Sedang":
-                kaloriHarian = "Aktivitas sedang: 2.400–2.800 kalori/hari";
+                kaloriHarian = "2.400–2.800";
                 break;
             case "Tinggi":
-                kaloriHarian = "Aktivitas tinggi: 2.800–3.200 kalori/hari";
+                kaloriHarian = "2.800–3.200";
                 break;
             default:
                 kaloriHarian = "Pilih tingkat aktivitas";
